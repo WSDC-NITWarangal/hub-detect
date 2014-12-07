@@ -1,0 +1,27 @@
+
+NMDC Protocol. Client to Hub Connection:
+
+1.
+$Lock EXTENDEDPROTOCOLDb^YZ6e8VqhdF;niO]Yv4hV0m[Mwin Pk=PtokaX|   ->
+$Supports UserCommand NoGetINFO NoHello UserIP2 TTHSearch ZPipe0 TLS |
+$Key tA 0bp05r"Upb!@/%DCN036%/fcap|
+$ValidateNick dudeeee|
+
+2. Optional
+$GetPass| ->
+$MyPass <password>|
+
+3.
+$Hello <nick>| ->
+$Version 1,0091|
+$GetNickList|
+$MyINFO $ALL dudeeee  <EiskaltDC++ V:2.2.7,M:A,H:1/0/0,S:3>$ $5$$30621370408$|
+
+4.
+$LogedIn <nick>| -> nothing
+
+5.
+$HubName <name>|$HubInfo <info>| -> store
+
+
+6. To register send <nick> +regme <password>|
