@@ -65,6 +65,11 @@ function getKey(lk) {
     return res;
 }
 
+// @Vaibhav Awachat
+Dcpp.prototype.getHub = function(){
+  return this.hubDetails; 
+};
+
 Dcpp.prototype.printHubDetails = function() {
     console.log("Hub Address  :  " + this.hubDetails.Address);
     console.log("Hub Name     :  " + this.hubDetails.Name);

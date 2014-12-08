@@ -1,0 +1,60 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'nmdc' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 verbose cache add [ 'nmdc', null ]
+6 verbose cache add name=undefined spec="nmdc" args=["nmdc",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'nmdc',
+7 verbose parsed url   path: 'nmdc',
+7 verbose parsed url   href: 'nmdc' }
+8 silly lockFile a36f48b7-nmdc nmdc
+9 verbose lock nmdc C:\Users\Vaibhav Awachat\AppData\Roaming\npm-cache\a36f48b7-nmdc.lock
+10 silly lockFile a36f48b7-nmdc nmdc
+11 silly lockFile a36f48b7-nmdc nmdc
+12 verbose addNamed [ 'nmdc', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile add75453-nmdc nmdc@
+15 verbose lock nmdc@ C:\Users\Vaibhav Awachat\AppData\Roaming\npm-cache\add75453-nmdc.lock
+16 silly addNameRange { name: 'nmdc', range: '*', hasData: false }
+17 verbose url raw nmdc
+18 verbose url resolving [ 'https://registry.npmjs.org/', './nmdc' ]
+19 verbose url resolved https://registry.npmjs.org/nmdc
+20 info trying registry request attempt 1 at 18:37:07
+21 http GET https://registry.npmjs.org/nmdc
+22 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
+23 info trying registry request attempt 2 at 18:37:17
+24 http GET https://registry.npmjs.org/nmdc
+25 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
+26 info trying registry request attempt 3 at 18:38:17
+27 http GET https://registry.npmjs.org/nmdc
+28 silly lockFile add75453-nmdc nmdc@
+29 silly lockFile add75453-nmdc nmdc@
+30 error network getaddrinfo ENOTFOUND
+30 error network This is most likely not a problem with npm itself
+30 error network and is related to network connectivity.
+30 error network In most cases you are behind a proxy or have bad network settings.
+30 error network
+30 error network If you are behind a proxy, please make sure that the
+30 error network 'proxy' config is set properly.  See: 'npm help config'
+31 error System Windows_NT 6.2.9200
+32 error command "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "nmdc"
+33 error cwd C:\xampp\htdocs\gitlab\hubdetect
+34 error node -v v0.10.26
+35 error npm -v 1.4.3
+36 error syscall getaddrinfo
+37 error code ENOTFOUND
+38 error errno ENOTFOUND
+39 verbose exit [ 1, true ]
