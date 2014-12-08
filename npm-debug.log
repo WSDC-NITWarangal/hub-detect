@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
 1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
@@ -58,3 +59,58 @@
 37 error code ENOTFOUND
 38 error errno ENOTFOUND
 39 verbose exit [ 1, true ]
+=======
+info it worked if it ends with ok
+verbose cli [ 'node', '/usr/bin/npm', 'install', 'posix' ]
+info using npm@1.1.4
+info using node@v0.6.12
+verbose config file /home/wsdcncc/.npmrc
+verbose config file /usr/etc/npmrc
+verbose config file /usr/share/npm/npmrc
+verbose caching /var/www/hubdetect/node_modules/request/package.json
+verbose loadDefaults request@2.33.0
+verbose caching /var/www/hubdetect/node_modules/redis/package.json
+verbose loadDefaults redis@0.10.0
+verbose caching /var/www/hubdetect/node_modules/async/package.json
+verbose loadDefaults async@0.2.9
+verbose has wscript [ undefined,
+verbose has wscript   { file: '/var/www/hubdetect/node_modules/posix/package.json',
+verbose has wscript     contributors: false,
+verbose has wscript     serverjs: false,
+verbose has wscript     wscript: true } ]
+verbose caching /var/www/hubdetect/node_modules/posix/package.json
+verbose loadDefaults posix@1.0.3
+verbose cache add [ 'posix', null ]
+silly cache add: name, spec, args [ undefined, 'posix', [ 'posix', null ] ]
+verbose parsed url { pathname: 'posix', path: 'posix', href: 'posix' }
+verbose addNamed [ 'posix', '' ]
+verbose addNamed [ null, '' ]
+silly name, range, hasData [ 'posix', '', false ]
+verbose raw, before any munging posix
+verbose url resolving [ 'https://registry.npmjs.org/', './posix' ]
+verbose url resolved https://registry.npmjs.org/posix
+http GET https://registry.npmjs.org/posix
+ERR! Error: failed to fetch from registry: posix
+ERR!     at /usr/share/npm/lib/utils/npm-registry-client/get.js:139:12
+ERR!     at cb (/usr/share/npm/lib/utils/npm-registry-client/request.js:31:9)
+ERR!     at Request._callback (/usr/share/npm/lib/utils/npm-registry-client/request.js:136:18)
+ERR!     at Request.callback (/usr/lib/nodejs/request/main.js:119:22)
+ERR!     at Request.<anonymous> (/usr/lib/nodejs/request/main.js:212:58)
+ERR!     at Request.emit (events.js:88:20)
+ERR!     at ClientRequest.<anonymous> (/usr/lib/nodejs/request/main.js:209:10)
+ERR!     at ClientRequest.emit (events.js:67:17)
+ERR!     at ClientRequest.onError (/usr/lib/nodejs/request/tunnel.js:164:21)
+ERR!     at ClientRequest.g (events.js:156:14)
+ERR! You may report this log at:
+ERR!     <http://bugs.debian.org/npm>
+ERR! or use
+ERR!     reportbug --attach /var/www/hubdetect/npm-debug.log npm
+ERR! 
+ERR! System Linux 3.13.0-40-generic
+ERR! command "node" "/usr/bin/npm" "install" "posix"
+ERR! cwd /var/www/hubdetect
+ERR! node -v v0.6.12
+ERR! npm -v 1.1.4
+ERR! message failed to fetch from registry: posix
+verbose exit [ 1, true ]
+>>>>>>> 4d1c6057af02ed0d9d7ebbf1b2291d1b0dd81410
