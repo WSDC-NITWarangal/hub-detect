@@ -69,13 +69,20 @@ function getKey(lk) {
 Dcpp.prototype.getHub = function(){
   return this.hubDetails; 
 };
-
+// @Kranthi Kiran
+// var mysql = require('mysql');
+// var connection = mysql.createConnection({
+//   host     : 'localhost',
+//   user     : 'root',
+//   password : '',
+//   database :'test',
+// });
 Dcpp.prototype.printHubDetails = function() {
-    console.log("Hub Address  :  " + this.hubDetails.Address);
-    console.log("Hub Name     :  " + this.hubDetails.Name);
-    console.log("Hub Users    :  " + this.hubDetails.Users);
-    console.log("Hub Uptime   :  " + this.hubDetails.UpTime);
-    console.log("Hub Software :  " + this.hubDetails.Software);
+    console.log("Hub Address  :  " + this.hubDetails.Address+"\n");
+    console.log("Hub Name     :  " + this.hubDetails.Name+"\n");
+    console.log("Hub Users    :  " + this.hubDetails.Users+"\n");
+    console.log("Hub Uptime   :  " + this.hubDetails.UpTime+"\n");
+    console.log("Hub Software :  " + this.hubDetails.Software+"\n");
     console.log("*********************************");
 };
 
@@ -182,3 +189,4 @@ Dcpp.prototype.getMyInfo = function() {
 };
 
 module.exports = Dcpp;
+// connection.end();

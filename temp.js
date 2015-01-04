@@ -1,6 +1,7 @@
 var net = require('net');
 var querystring = require('querystring');
 var http = require('http');
+
 var dcpp = require('./dcppclient');
 var base = '172.30.';
 var count = 0;
@@ -18,6 +19,7 @@ function testAddress(addr, port) {
     // });
     client.on('connect', function() {
         console.log("DC++ Hub (" + port + ") is running on " + addr);
+        
         // console.log("Receiving data ...");
     });
 
@@ -53,38 +55,34 @@ function hubslist(item) {
         hubs.push(item);
     }
 }
+/* @Kranthi Kiran */
+var mysql=require('mysql');
+var connection=mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    password:'invictus',
+    database:'wsdc_hubs'
+});
 
+connection.connect();
 function update_hubs_database(data) {
     var qs = JSON.stringify(data.content);
-    // console.log(qs);
+    var t = JSON.parse(qs);
     qs = '[["token":"'+data.token+'"],'+qs+']';
-    console.log(qs);
+    console.log(t);
+    var query1 = connection.query("TRUNCATE TABLE hubs");
+    query1=connection.query("CREATE TABLE IF NOT EXISTS `hubs` (`id` int(11) NOT NULL,`name` text NOT NULL,`users` text NOT NULL,`uptime` text NOT NULL,`address` varchar(16) NOT NULL,`software` varchar(256) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;");
+    for(var i=0;i<t.length;i++){
+            console.log("Name: "+t[i].Name);
+            var data={name:t[i].Name,users:t[i].Users,uptime:t[i].UpTime,address:t[i].Address,software:t[i].Software};
+            var query = connection.query("INSERT INTO hubs SET ? ",data,function(err,rows){
+                if(err)
+                    console.log("Error inserting : %s ",err);
+                console.log("success");
+            });
+    }
     qs = qs.toString()
-    // return;
     var qslength = qs.length;
-    console.log(qs);
-    var options = {
-        hostname: "172.20.0.4",
-        port: 80,
-        path: "/student_beta/apps/update_hubs",
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Content-Length': qslength
-        }
-    };
-
-    var buffer = "";
-    var req = http.request(options, function(res) {
-        res.on('data', function(chunk) {
-            buffer += chunk;
-        });
-        res.on('end', function() {
-            console.log(buffer);
-        });
-    });
-    req.write(qs);
-    req.end();
 }
 
 
@@ -116,6 +114,5 @@ function findAll() {
 }
 
 findAll();
-
 
 setInterval(findAll, 10000);
