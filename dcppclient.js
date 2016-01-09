@@ -65,18 +65,11 @@ function getKey(lk) {
     return res;
 }
 
-// @Vaibhav Awachat
+
 Dcpp.prototype.getHub = function(){
   return this.hubDetails; 
 };
-// @Kranthi Kiran
-// var mysql = require('mysql');
-// var connection = mysql.createConnection({
-//   host     : 'localhost',
-//   user     : 'root',
-//   password : '',
-//   database :'test',
-// });
+
 Dcpp.prototype.printHubDetails = function() {
     console.log("Hub Address  :  " + this.hubDetails.Address+"\n");
     console.log("Hub Name     :  " + this.hubDetails.Name+"\n");
@@ -189,4 +182,3 @@ Dcpp.prototype.getMyInfo = function() {
 };
 
 module.exports = Dcpp;
-// connection.end();

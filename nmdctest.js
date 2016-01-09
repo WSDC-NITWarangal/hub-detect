@@ -1,5 +1,5 @@
 var hub = new require("nmdc").Nmdc({
-    address: "172.30.106.182",
+    address: "<ip_address_here>",
     auto_reconnect: false
 });
 console.log("Test");

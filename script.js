@@ -3,7 +3,8 @@ var querystring = require('querystring');
 var http = require('http');
 
 var dcpp = require('./dcppclient');
-var base = '172.30.';
+//The first to numbers of IP address
+var base = '127.0.';
 var count = 0;
 // contain main hub list array 
 var hubs = new Array();
@@ -12,26 +13,18 @@ function testAddress(addr, port) {
     var client = new net.Socket();
     var dcclient;
     client.connect(port, addr);
-    // client.setTimeout(1000, function() {
-    // 	console.log(addr + ' None present');
-    // 	client.destroy();
-    // 	// callback();
-    // });
+    
     client.on('connect', function() {
-        console.log("DC++ Hub (" + port + ") is running on " + addr);
-        
-        // console.log("Receiving data ...");
+        console.log("DC++ Hub (" + port + ") is running on " + addr);  
+        console.log("Receiving data ...");
     });
 
     client.on('data', function(data) {
-        // console.log(addr + ' [DC++ Hub Present] Data:' + data);
         dcclient = new dcpp(addr);
         var rep = dcclient.handleCommand(data.toString('ascii'));
         if (rep === "TERMINATE") {
-            //dcclient.printHubDetails();
             hubslist(dcclient.getHub());
             client.destroy();
-            // callback();
         } else {
             client.write(rep, 'ascii');
         }
@@ -39,19 +32,16 @@ function testAddress(addr, port) {
 
     client.on('error', function() {
         client.destroy();
-        // callback();
     });
 
     client.on('end', function() {
         console.log("Disconnected from " + addr);
         client.destroy();
-        // callback();
     });
 }
 
 function hubslist(item) {
     if (item != "" && item != undefined) {
-        // console.log(item);
         hubs.push(item);
     }
 }
@@ -60,8 +50,8 @@ var mysql=require('mysql');
 var connection=mysql.createConnection({
     host:'localhost',
     user:'root',
-    password:'invictus',
-    database:'wsdc_hubs'
+    password:'<password-here>',
+    database:'<database_name_here>'
 });
 
 connection.connect();
@@ -89,7 +79,6 @@ function update_hubs_database(data) {
 
 function findAll() {
     count = 0;
-    // hubs = new Arrays();
     var startTime = Date.now();
     var addresses = [];
 
@@ -98,17 +87,16 @@ function findAll() {
             addresses.push(i.toString() + '.' + j.toString());
         }
     }
-    // var test = '106.182';
-    // addresses.push(test.toString());
+   
     console.log("Scanning " + addresses.length + " addresses");
     for (var i = 0; i < addresses.length; i++) {
         testAddress(base + addresses[i], 411);
     }
-    // console.log(hubs);
-     var data = {};
-    data['token'] = 'rajakiaayegibarat';
+    
+    var data = {};
+    data['token'] = 'yoursecurityTokenhere!#@#$#%&^%';
     data['content'] = hubs;
-   update_hubs_database(data);
+    update_hubs_database(data);
     hubs = new Array();
    
 }
